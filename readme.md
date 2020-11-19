@@ -6,6 +6,8 @@
 
 This is the repo of the config for the Phaser workshop that we hosted on Friday 20 November 2020 in the context of our formation with [BeCode](https://becode.org/).
 
+![exemples](./exemple.png)
+
 ## Get started
 
 1) clone this repo
