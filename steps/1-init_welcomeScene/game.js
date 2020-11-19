@@ -25,7 +25,8 @@ window.onload = () =>
 
 //---------- Variables
 
-
+let player;
+let platforms;
 
 //---------- Welcome Scene
 
@@ -37,11 +38,24 @@ class welcomeScene extends Phaser.Scene
     }
     preload()
     {
-        
+        this.load.image('homeBackground', 'assets/img/homeBackground.png');
+        this.load.image('ground', 'assets/img/ground.png');
+        this.load.spritesheet('phantom', 'assets/img/phantom.png',
+            { frameWidth: 144, frameHeight: 221 }
+        );
     }
     create()
     {
+        this.add.image(400, 300, 'homeBackground');
 
+        platforms = this.physics.add.staticGroup();
+        platforms.create(400, 600, 'ground').setScale(2).refreshBody();
+
+        player = this.physics.add.sprite(70, 500, 'phantom').setScale(0.5).refreshBody();
+        player.setBounce(0.2);
+        player.setCollideWorldBounds(true);
+
+        this.physics.add.collider(player, platforms);
 
         //---------- Animations
 
